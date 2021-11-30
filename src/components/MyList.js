@@ -1,9 +1,16 @@
 import React from "react";
+import ToDo from "./ToDo";
 
-function MyList(){
+function MyList(props){
+   // console.log(props.todo)
     return(
         <div>
-            <ul></ul>
+            <ul>
+                {props.filtred.map((job)=>(
+                    <ToDo setToDo={props.setToDo} list={props.todo}
+                     item={job} value={job.text} key={job.id}/>
+                ))}
+            </ul>
         </div>
     )
 }
