@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import Form from './components/Form';
 import MyList from './components/MyList';
 
 function App() {
-  // USE EFFECT EXAMPLE FOR ME
   const [inputVal,setInput] = useState("");
   const [myToDo,setToDo] = useState([]);
   const [status,setStatus] = useState("all");
   const [filtred,setFiltred] = useState([]);
+  // USE EFFECT EXAMPLE FOR ME
   useEffect(()=>{
     filter();
   },[myToDo,status])
