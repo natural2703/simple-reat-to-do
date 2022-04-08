@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import Form from './components/Form';
 import MyList from './components/MyList';
-
+import {DONE,NOT_YET} from './Enum';
+import {loadData,saveData} from './storageKeeper';
 function App() {
   const [inputVal,setInput] = useState("");
   const [myToDo,setToDo] = useState([]);
   const [status,setStatus] = useState("all");
   const [filtred,setFiltred] = useState([]);
   // USE EFFECT EXAMPLE FOR ME
+  useEffect(()=>{
+    //setToDo(loadData())
+    console.log(loadData())
+    setToDo([...myToDo,loadData()])
+  },[])
   useEffect(()=>{
     filter();
   },[myToDo,status])
@@ -24,6 +30,8 @@ function App() {
         break;
     }
   };
+  //loadconsole.log(JSON.parse(localStorage.getItem('tasks')))
+  //loadData(setToDo());
   return (
     <div className="App">
       <header>
@@ -34,6 +42,7 @@ function App() {
       setStatus={setStatus}/>
       <div>{inputVal}</div>
       <div>{myToDo.length}</div>
+      <button onClick={()=>{saveData(myToDo)}}>Zapisz</button>
       <MyList setToDo={setToDo} todo={myToDo} filtred={filtred}/>
     </div>
   );
