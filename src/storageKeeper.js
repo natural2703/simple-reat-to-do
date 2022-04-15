@@ -4,9 +4,10 @@ export const saveData = (data)=>{
 }
 export const loadData = ()=>{
     const data = localStorage.getItem('tasks')
-    //console.log(data);
+   // console.log(JSON.parse(data));
     //setToDo(JSON.parse(data))
-    return (JSON.parse(data))
+    //return (JSON.parse(data))
+    return JSON.parse(data);
 }
 export const clearData = ()=>{
     

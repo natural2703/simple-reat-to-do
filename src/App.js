@@ -11,8 +11,9 @@ function App() {
   // USE EFFECT EXAMPLE FOR ME
   useEffect(()=>{
     //setToDo(loadData())
-    console.log(loadData())
-    setToDo([...myToDo,loadData()])
+    //console.log(loadData())
+    const data = loadData();
+    setToDo(data)
   },[])
   useEffect(()=>{
     filter();
