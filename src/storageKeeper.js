@@ -10,5 +10,5 @@ export const loadData = ()=>{
     return JSON.parse(data);
 }
 export const clearData = ()=>{
-    
+    localStorage.clear()
 }
